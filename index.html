@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Kosova — Import Makinash nga Korea & Evropa</title>
+  <meta name="description" content="Auto Kosova — Import profesional makinash nga Korea e Jugut dhe Evropa. Katalog i plotë, çmime transparente, transport i sigurt." />
+
+  <!-- Fontet: Oswald (titujt) + Montserrat (trupi) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper.js për slider -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Stilet e faqes -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/lightbox.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">AK</span>
+        <span class="logo-text">AUTO<strong>KOSOVA</strong></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#home">Kryefaqja</a>
+        <a href="#inventory">Inventari</a>
+        <a href="#how">Si Funksionon</a>
+        <a href="#calc">Kalkulator</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="admin.html" class="btn btn-outline">Admin</a>
+        <a href="https://wa.me/38344123456" class="btn btn-primary" target="_blank">WhatsApp</a>
+        <button class="burger" id="burger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO SLIDER ============ -->
+  <section class="hero" id="home">
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide hero-slide" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80')">
+          <div class="hero-overlay"></div>
+          <div class="hero-content container">
+            <span class="hero-tag">Import nga Korea e Jugut</span>
+            <h1 class="hero-title">Makinat e Ëndrrave, <br>Dorëzuar në Kosovë</h1>
+            <p class="hero-sub">Katalog i përzgjedhur, çmime transparente, transport i sigurt.</p>
+            <div class="hero-buttons">
+              <a href="#inventory" class="btn btn-primary btn-lg">Shiko Inventarin</a>
+              <a href="#how" class="btn btn-ghost btn-lg">Si Funksionon</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide hero-slide" style="background-image:url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1920&q=80')">
+          <div class="hero-overlay"></div>
+          <div class="hero-content container">
+            <span class="hero-tag">Premium & SUV</span>
+            <h1 class="hero-title">Zgjidh Nivelin <br>Tënd të Ri</h1>
+            <p class="hero-sub">Makina të inspektuara, raporte të plota, garanci.</p>
+            <div class="hero-buttons">
+              <a href="#inventory" class="btn btn-primary btn-lg">Zbulo Makinat</a>
+              <a href="#contact" class="btn btn-ghost btn-lg">Na Kontakto</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide hero-slide" style="background-image:url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1920&q=80')">
+          <div class="hero-overlay"></div>
+          <div class="hero-content container">
+            <span class="hero-tag">Çmime Konkurruese</span>
+            <h1 class="hero-title">Import i Lehtë, <br>Pa Surpriza</h1>
+            <p class="hero-sub">Kalkulator i plotë: çmimi, transporti, dogana dhe taksat.</p>
+            <div class="hero-buttons">
+              <a href="#calc" class="btn btn-primary btn-lg">Kalkulo Çmimin</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <!-- ============ INVENTARI ============ -->
+  <section class="section" id="inventory">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Inventari</span>
+        <h2 class="section-title">Makinat e Disponueshme</h2>
+        <p class="section-sub">Kërko, filtro dhe zgjidh makinën që të përshtatet.</p>
+      </div>
+
+      <!-- Filtra -->
+      <div class="filters">
+        <input type="text" id="searchInput" class="input" placeholder="Kërko markë, model…" />
+        <select id="filterBrand" class="input"><option value="">Të gjitha markat</option></select>
+        <select id="filterYear" class="input"><option value="">Çdo vit</option></select>
+        <select id="filterFuel" class="input">
+          <option value="">Çdo karburant</option>
+          <option>Benzinë</option>
+          <option>Dizel</option>
+          <option>Hibrid</option>
+          <option>Elektrik</option>
+        </select>
+        <select id="sortBy" class="input">
+          <option value="newest">Më të rejat</option>
+          <option value="price-asc">Çmimi: Ulët → Lartë</option>
+          <option value="price-desc">Çmimi: Lartë → Ulët</option>
+          <option value="year-desc">Viti: Më i ri</option>
+        </select>
+      </div>
+
+      <!-- Grid i makinave -->
+      <div class="cars-grid" id="carsGrid"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <p>Nuk ka makina që përputhen me filtrat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SI FUNKSIONON ============ -->
+  <section class="section section-dark" id="how">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Procesi</span>
+        <h2 class="section-title">Si Funksionon Importi</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="step-num">01</span><h3>Zgjidh Makinën</h3><p>Shfleto katalogun ose dërgo kërkesë specifike.</p></div>
+        <div class="step"><span class="step-num">02</span><h3>Konfirmo & Paguaj</h3><p>Marrim ofertën, konfirmon klienti, bëhet pagesa.</p></div>
+        <div class="step"><span class="step-num">03</span><h3>Transporti</h3><p>Makinat dërgohen nga Korea/Evropa drejt Kosovës.</p></div>
+        <div class="step"><span class="step-num">04</span><h3>Dorëzimi</h3><p>Kontroll final, taksa, dorëzim me dokumente.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KALKULATOR ============ -->
+  <section class="section" id="calc">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Kalkulator</span>
+        <h2 class="section-title">Vlerëso Çmimin Total</h2>
+      </div>
+      <div class="calc-box">
+        <div class="calc-field">
+          <label>Çmimi i makinës (€)</label>
+          <input type="number" id="calcPrice" class="input" value="15000" />
+        </div>
+        <div class="calc-field">
+          <label>Transporti (€)</label>
+          <input type="number" id="calcShip" class="input" value="2500" />
+        </div>
+        <div class="calc-field">
+          <label>Dogana & Taksa (%)</label>
+          <input type="number" id="calcTax" class="input" value="22" />
+        </div>
+        <div class="calc-result">
+          <span>Totali i vlerësuar</span>
+          <strong id="calcTotal">€ 0</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section class="section section-dark" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <span class="section-tag">Kontakt</span>
+        <h2 class="section-title">Le të Flasim</h2>
+        <p>Pyetje për një makinë specifike? Kërkesë për import? Jemi këtu.</p>
+        <ul class="contact-list">
+          <li>📍 Prishtinë, Kosovë</li>
+          <li>📞 +383 44 123 456</li>
+          <li>✉️ info@autokosova.com</li>
+        </ul>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Faleminderit! Do t\'ju kontaktojmë së shpejti.');">
+        <input class="input" placeholder="Emri" required />
+        <input class="input" type="email" placeholder="Email" required />
+        <input class="input" placeholder="Subjekti" />
+        <textarea class="input" rows="4" placeholder="Mesazhi…" required></textarea>
+        <button class="btn btn-primary btn-lg" type="submit">Dërgo Mesazhin</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="logo-text">AUTO<strong>KOSOVA</strong></span>
+        <p>Import makinash nga Korea e Jugut & Evropa.</p>
+      </div>
+      <div>
+        <h4>Navigimi</h4>
+        <a href="#inventory">Inventari</a>
+        <a href="#how">Si Funksionon</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+      <div>
+        <h4>Ndjek</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Auto Kosova. Të gjitha të drejtat e rezervuara.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lb" hidden>
+    <button class="lb-close" aria-label="Mbyll">×</button>
+    <button class="lb-prev" aria-label="Përpara">‹</button>
+    <img class="lb-img" src="" alt="" />
+    <button class="lb-next" aria-label="Pas">›</button>
+  </div>
+
+  <!-- Swiper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
