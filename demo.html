@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="sq" data-theme="aurum">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Kosova — Theme Preview</title>
+
+<!-- Të gjitha fontet e mundshme -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   RESET + BAZË
+   ========================================================= */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background .4s ease, color .4s ease;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: .25s; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+.container { width: min(1280px, 92%); margin: 0 auto; }
+
+/* =========================================================
+   🎨 TEMA 1 — AURUM (Zi + Ar, luksoz, serif)
+   ========================================================= */
+[data-theme="aurum"] {
+  --bg: #0a0a0a;
+  --bg-alt: #0f0f0f;
+  --surface: #131313;
+  --border: #1f1f1f;
+  --text: #f4f4f4;
+  --text-dim: #8a8a8a;
+  --accent: #c9a961;
+  --accent-hover: #e6c988;
+  --accent-text: #0a0a0a;
+  --font-body: 'Inter', sans-serif;
+  --font-head: 'Cormorant Garamond', serif;
+  --font-btn: 'Inter', sans-serif;
+  --radius: 0px;
+  --radius-lg: 0px;
+  --btn-radius: 0px;
+  --btn-text-transform: uppercase;
+  --btn-letter: 2px;
+  --card-shadow: 0 20px 60px rgba(201,169,97,.15);
+  --hero-overlay: linear-gradient(90deg, rgba(10,10,10,.96) 0%, rgba(10,10,10,.65) 50%, rgba(10,10,10,.35) 100%);
+  --title-weight: 400;
+  --title-letter: -1px;
+  --title-size: clamp(48px, 7vw, 96px);
+}
+
+/* =========================================================
+   🎨 TEMA 2 — NORDIC (Bardhë + Blu, minimal)
+   ========================================================= */
+[data-theme="nordic"] {
+  --bg: #f7f8fa;
+  --bg-alt: #ffffff;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --text-dim: #64748b;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-text: #ffffff;
+  --font-body: 'Inter', sans-serif;
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-btn: 'Inter', sans-serif;
+  --radius: 12px;
+  --radius-lg: 16px;
+  --btn-radius: 10px;
+  --btn-text-transform: none;
+  --btn-letter: 0;
+  --card-shadow: 0 20px 40px rgba(0,0,0,.08);
+  --hero-overlay: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(247,248,250,.85) 100%);
+  --title-weight: 700;
+  --title-letter: -2px;
+  --title-size: clamp(38px, 5vw, 68px);
+}
+
+/* =========================================================
+   🎨 TEMA 3 — NEON (Zi + Cyan/Portokalli, sportiv)
+   ========================================================= */
+[data-theme="neon"] {
+  --bg: #05060a;
+  --bg-alt: #0a0c14;
+  --surface: #0d0f16;
+  --border: #1a1d28;
+  --text: #e8eaf0;
+  --text-dim: #6b7280;
+  --accent: #00e5ff;
+  --accent-hover: #5cf2ff;
+  --accent-2: #ff3d00;
+  --accent-text: #000000;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-head: 'Orbitron', sans-serif;
+  --font-btn: 'Orbitron', sans-serif;
+  --radius: 0px;
+  --radius-lg: 0px;
+  --btn-radius: 0px;
+  --btn-text-transform: uppercase;
+  --btn-letter: 2px;
+  --card-shadow: 0 20px 50px rgba(0,229,255,.2);
+  --hero-overlay: linear-gradient(105deg, rgba(5,6,10,.98) 0%, rgba(5,6,10,.75) 45%, rgba(5,6,10,.4) 100%);
+  --title-weight: 900;
+  --title-letter: -2px;
+  --title-size: clamp(42px, 7vw, 100px);
+}
+
+/* =========================================================
+   🎨 TEMA 4 — CARBON (Zi + Kuq racing, agresiv)
+   ========================================================= */
+[data-theme="carbon"] {
+  --bg: #0a0a0a;
+  --bg-alt: #0f0f0f;
+  --surface: #141414;
+  --border: #262626;
+  --text: #fafafa;
+  --text-dim: #737373;
+  --accent: #dc2626;
+  --accent-hover: #ef4444;
+  --accent-text: #ffffff;
+  --font-body: 'Archivo', sans-serif;
+  --font-head: 'Archivo Black', sans-serif;
+  --font-btn: 'Archivo Black', sans-serif;
+  --radius: 0px;
+  --radius-lg: 0px;
+  --btn-radius: 0px;
+  --btn-text-transform: uppercase;
+  --btn-letter: 1.5px;
+  --card-shadow: 0 25px 60px rgba(0,0,0,.6);
+  --hero-overlay: linear-gradient(180deg, transparent 30%, #0a0a0a 100%);
+  --title-weight: 900;
+  --title-letter: -3px;
+  --title-size: clamp(52px, 8vw, 120px);
+}
+
+/* =========================================================
+   🎨 TEMA 5 — FOREST (Zi + Gjelbër, elegant natyror)
+   ========================================================= */
+[data-theme="forest"] {
+  --bg: #0c1210;
+  --bg-alt: #0f1614;
+  --surface: #131b18;
+  --border: #1e2a25;
+  --text: #eef5f1;
+  --text-dim: #7a8c84;
+  --accent: #10b981;
+  --accent-hover: #34d399;
+  --accent-text: #001a0f;
+  --font-body: 'Montserrat', sans-serif;
+  --font-head: 'Oswald', sans-serif;
+  --font-btn: 'Montserrat', sans-serif;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --btn-radius: 8px;
+  --btn-text-transform: uppercase;
+  --btn-letter: 1.5px;
+  --card-shadow: 0 20px 50px rgba(16,185,129,.15);
+  --hero-overlay: linear-gradient(135deg, rgba(12,18,16,.95) 0%, rgba(12,18,16,.7) 60%, rgba(16,185,129,.15) 100%);
+  --title-weight: 700;
+  --title-letter: -0.5px;
+  --title-size: clamp(40px, 6vw, 82px);
+}
+
+/* =========================================================
+   THEME SWITCHER (butonat)
+   ========================================================= */
+.theme-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(20,20,20,.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 999px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+}
+.theme-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid transparent;
+  transition: .25s;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0;
+  position: relative;
+}
+.theme-btn:hover { transform: scale(1.12); }
+.theme-btn.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255,255,255,.2);
+}
+.theme-btn[data-set="aurum"]  { background: linear-gradient(135deg, #0a0a0a, #c9a961); }
+.theme-btn[data-set="nordic"] { background: linear-gradient(135deg, #f7f8fa, #2563eb); color: #0f172a; }
+.theme-btn[data-set="neon"]   { background: linear-gradient(135deg, #05060a, #00e5ff); }
+.theme-btn[data-set="carbon"] { background: linear-gradient(135deg, #0a0a0a, #dc2626); }
+.theme-btn[data-set="forest"] { background: linear-gradient(135deg, #0c1210, #10b981); }
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  transition: .3s;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-head);
+  font-weight: var(--title-weight);
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 16px;
+  transition: .3s;
+}
+.nav {
+  display: flex;
+  gap: 34px;
+}
+.nav a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: var(--btn-letter);
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.nav a:hover { color: var(--accent); }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  font-family: var(--font-btn);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: var(--btn-letter);
+  text-transform: var(--btn-text-transform);
+  border-radius: var(--btn-radius);
+  transition: .3s;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+.btn-outline {
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-lg { padding: 16px 34px; font-size: 14px; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  min-height: 100vh;
+  padding: 140px 0 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=90') center/cover;
+  z-index: 1;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-overlay);
+  z-index: 2;
+  transition: background .4s ease;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 720px;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-btn);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  padding: 8px 18px;
+  border: 1px solid var(--accent);
+  border-radius: var(--btn-radius);
+}
+.hero h1 {
+  font-family: var(--font-head);
+  font-weight: var(--title-weight);
+  font-size: var(--title-size);
+  line-height: 1;
+  letter-spacing: var(--title-letter);
+  margin-bottom: 26px;
+  transition: .3s;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero p {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+.section {
+  padding: 100px 0;
+}
+.section-alt {
+  background: var(--bg-alt);
+}
+.section-head {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-tag {
+  display: block;
+  font-family: var(--font-btn);
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.section-title {
+  font-family: var(--font-head);
+  font-weight: var(--title-weight);
+  font-size: clamp(30px, 4.5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: var(--title-letter);
+}
+.section-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* =========================================================
+   CARS GRID
+   ========================================================= */
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 26px;
+}
+.car-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: .4s;
+  display: flex;
+  flex-direction: column;
+}
+.car-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--card-shadow);
+}
+.car-img {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+.car-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .8s;
+}
+.car-card:hover .car-img img { transform: scale(1.08); }
+.car-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 14px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-family: var(--font-btn);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: var(--btn-radius);
+}
+.car-price {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 10px 18px;
+  background: rgba(10,10,10,.9);
+  backdrop-filter: blur(10px);
+  color: var(--accent);
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: var(--btn-radius);
+  border: 1px solid var(--accent);
+}
+.car-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+.car-title {
+  font-family: var(--font-head);
+  font-weight: var(--title-weight);
+  font-size: 24px;
+  letter-spacing: var(--title-letter);
+  line-height: 1.1;
+}
+.car-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-dim);
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.car-meta span::before {
+  content: '·';
+  color: var(--accent);
+  margin-right: 6px;
+}
+.car-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+.car-actions .btn {
+  padding: 10px 18px;
+  font-size: 12px;
+}
+
+/* =========================================================
+   FEATURES / STEPS
+   ========================================================= */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+.step {
+  padding: 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: .3s;
+}
+.step:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+.step-num {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: var(--title-letter);
+}
+.step h3 {
+  font-family: var(--font-head);
+  font-weight: var(--title-weight);
+  font-size: 22px;
+  margin-bottom: 8px;
+  letter-spacing: var(--title-letter);
+}
+.step p {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  padding: 60px 0 30px;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer .logo {
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.footer p {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .theme-switch { top: auto; bottom: 20px; right: 50%; transform: translateX(50%); }
+  .hero { padding: 120px 0 60px; min-height: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== THEME SWITCHER ===== -->
+<div class="theme-switch">
+  <button class="theme-btn active" data-set="aurum"  title="Aurum">AK</button>
+  <button class="theme-btn" data-set="nordic" title="Nordic">ND</button>
+  <button class="theme-btn" data-set="neon"   title="Neon">NE</button>
+  <button class="theme-btn" data-set="carbon" title="Carbon">CB</button>
+  <button class="theme-btn" data-set="forest" title="Forest">FR</button>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">AK</span>
+      <span>AUTO<span style="color:var(--accent)">KOSOVA</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#inventory">Inventari</a>
+      <a href="#how">Si Funksionon</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Rezervo Tani</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <span class="hero-tag">Import Ekskluziv · Korea & Evropa</span>
+    <h1>Makinat e <em>ëndrrave</em>,<br>dorëzuar në Kosovë.</h1>
+    <p>Katalog i përzgjedhur, çmime transparente, dhe transport i sigurt deri në derën tuaj.</p>
+    <div class="hero-actions">
+      <a href="#inventory" class="btn btn-primary btn-lg">Shiko Inventarin</a>
+      <a href="#contact" class="btn btn-outline btn-lg">Na Kontakto</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INVENTARI ===== -->
+<section class="section" id="inventory">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Koleksioni Ynë</span>
+      <h2 class="section-title">Makinat e <em>Fundit</em></h2>
+    </div>
+
+    <div class="cars-grid">
+      <article class="car-card">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="">
+          <span class="car-badge">E Re</span>
+          <span class="car-price">€24,500</span>
+        </div>
+        <div class="car-body">
+          <h3 class="car-title">Hyundai Tucson</h3>
+          <div class="car-meta">
+            <span>2023</span>
+            <span>14,200 km</span>
+            <span>Automatik</span>
+          </div>
+          <div class="car-actions">
+            <a href="#" class="btn btn-primary">Detaje</a>
+            <a href="#" class="btn btn-outline">Fotot</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" alt="">
+          <span class="car-price">€21,900</span>
+        </div>
+        <div class="car-body">
+          <h3 class="car-title">Kia Sportage</h3>
+          <div class="car-meta">
+            <span>2022</span>
+            <span>28,400 km</span>
+            <span>Hibrid</span>
+          </div>
+          <div class="car-actions">
+            <a href="#" class="btn btn-primary">Detaje</a>
+            <a href="#" class="btn btn-outline">Fotot</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card">
+        <div class="car-img">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80" alt="">
+          <span class="car-badge">Rezervuar</span>
+          <span class="car-price">€28,900</span>
+        </div>
+        <div class="car-body">
+          <h3 class="car-title">Genesis G70</h3>
+          <div class="car-meta">
+            <span>2021</span>
+            <span>42,100 km</span>
+            <span>Benzinë</span>
+          </div>
+          <div class="car-actions">
+            <a href="#" class="btn btn-primary">Detaje</a>
+            <a href="#" class="btn btn-outline">Fotot</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SI FUNKSIONON ===== -->
+<section class="section section-alt" id="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Procesi</span>
+      <h2 class="section-title">Si <em>Funksionon</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Zgjidh Makinën</h3>
+        <p>Shfleto katalogun ose dërgo kërkesë specifike për makinën që dëshiron.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Konfirmo & Paguaj</h3>
+        <p>Marrim ofertën, konfirmon klienti, bëhet pagesa e sigurt.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Transporti</h3>
+        <p>Makinat dërgohen nga Korea ose Evropa drejt Kosovës.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h3>Dorëzimi</h3>
+        <p>Kontroll final, taksa, dhe dorëzim me të gjitha dokumentet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="logo">
+      <span class="logo-mark">AK</span>
+      <span>AUTO<span style="color:var(--accent)">KOSOVA</span></span>
+    </div>
+    <p>© 2025 Auto Kosova — Import makinash nga Korea & Evropa</p>
+    <p style="margin-top:6px">Prishtinë, Kosovë · +383 44 123 456</p>
+  </div>
+</footer>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+  const buttons = document.querySelectorAll('.theme-btn');
+  const html = document.documentElement;
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      html.setAttribute('data-theme', btn.dataset.set);
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Tastet 1-5 për ndryshim të shpejtë
+  document.addEventListener('keydown', (e) => {
+    const map = { '1':'aurum', '2':'nordic', '3':'neon', '4':'carbon', '5':'forest' };
+    if (map[e.key]) {
+      document.querySelector(`[data-set="${map[e.key]}"]`).click();
+    }
+  });
+</script>
+
+</body>
+</html>
