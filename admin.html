@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Auto Kosova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <header class="admin-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">AK</span>
+        <span class="logo-text">AUTO<strong>KOSOVA</strong></span>
+      </a>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-outline btn-sm">← Faqja Publike</a>
+        <span class="admin-count" id="carCount">0 makina</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main container">
+    <div class="admin-title">
+      <h1>Paneli i Adminit</h1>
+      <p>Shto, edito dhe menaxho makinat. Të dhënat ruhen lokalisht në PC.</p>
+    </div>
+
+    <!-- Formulari -->
+    <form class="admin-form" id="carForm">
+      <input type="hidden" id="carId" />
+
+      <div class="form-grid">
+        <div class="field"><label>Marka *</label><input class="input" id="fBrand" required placeholder="Hyundai" /></div>
+        <div class="field"><label>Modeli *</label><input class="input" id="fModel" required placeholder="Tucson" /></div>
+        <div class="field"><label>Viti *</label><input class="input" type="number" id="fYear" required placeholder="2022" /></div>
+        <div class="field"><label>Çmimi (€) *</label><input class="input" type="number" id="fPrice" required placeholder="24500" /></div>
+        <div class="field"><label>Kilometrazhi</label><input class="input" type="number" id="fKm" placeholder="32000" /></div>
+        <div class="field"><label>Karburanti</label>
+          <select class="input" id="fFuel">
+            <option>Benzinë</option><option>Dizel</option><option>Hibrid</option><option>Elektrik</option>
+          </select>
+        </div>
+        <div class="field"><label>Transmisioni</label>
+          <select class="input" id="fTrans"><option>Automatik</option><option>Manual</option></select>
+        </div>
+        <div class="field"><label>Statusi</label>
+          <select class="input" id="fStatus">
+            <option value="available">Në dispozicion</option>
+            <option value="reserved">Rezervuar</option>
+            <option value="sold">Shitur</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Përshkrimi</label>
+        <textarea class="input" id="fDesc" rows="3" placeholder="Detaje shtesë për makinën…"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Fotot (mund të zgjidhësh shumë njëherësh)</label>
+        <input class="input" type="file" id="fImages" accept="image/*" multiple />
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-lg" id="saveBtn">💾 Ruaj Makinën</button>
+        <button type="button" class="btn btn-outline" id="resetBtn">Pastro Formularin</button>
+        <button type="button" class="btn btn-danger" id="clearAllBtn">🗑 Fshi të Gjitha</button>
+      </div>
+    </form>
+
+    <!-- Lista -->
+    <div class="admin-list-head">
+      <h2>Makinat e Ruajtura</h2>
+      <input class="input" id="adminSearch" placeholder="Kërko…" />
+    </div>
+    <div class="admin-list" id="adminList"></div>
+  </main>
+
+  <script src="js/db.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
