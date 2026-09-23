@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detajet — Auto Kosova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/lightbox.css" />
+</head>
+<body>
+  <header class="header scrolled">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">AK</span>
+        <span class="logo-text">AUTO<strong>KOSOVA</strong></span>
+      </a>
+      <a href="index.html" class="btn btn-outline btn-sm">← Kthehu</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 120px 0 80px;" id="carDetail">
+    <p style="color:var(--text-dim)">Duke ngarkuar…</p>
+  </main>
+
+  <div id="lightbox" class="lb" hidden>
+    <button class="lb-close" aria-label="Mbyll">×</button>
+    <button class="lb-prev" aria-label="Përpara">‹</button>
+    <img class="lb-img" src="" alt="" />
+    <button class="lb-next" aria-label="Pas">›</button>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/car.js"></script>
+</body>
+</html>
