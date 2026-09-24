@@ -4,7 +4,9 @@ import requests
 
 # ⚠️ Token i përkohshëm — revokoje pas testit!
 APIFY_TOKEN = "apify_api_dXRtOHDtzneErD7mHMeTHXxMvCw6OD0Phrde"
-ACTOR_ID = "piotrv1001/encar-listings-scraper"
+
+# ✅ RREGULLUAR: përdor ~ në vend të /
+ACTOR_ID = "piotrv1001~encar-listings-scraper"
 
 # 1. Nis aktorin
 print("Duke nisur Apify actor...")
@@ -46,6 +48,8 @@ print(f"U morën {len(items)} makina.")
 if items:
     print("Fushat e një makine:")
     print(list(items[0].keys()))
+    print("Shembull i një makine:")
+    print(json.dumps(items[0], ensure_ascii=False, indent=2)[:1500])
 
 # 5. Normalizo fushat (me disa alternativa emrash)
 normalized = []
