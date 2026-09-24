@@ -4,69 +4,107 @@ import requests
 
 # ⚠️ Token i përkohshëm — revokoje pas testit!
 APIFY_TOKEN = "apify_api_dXRtOHDtzneErD7mHMeTHXxMvCw6OD0Phrde"
-
-# ✅ RREGULLUAR: përdor ~ në vend të /
 ACTOR_ID = "piotrv1001~encar-listings-scraper"
+
+# Përkthimi i markave Koreanisht → Anglisht
+BRANDS = {
+    "현대": "Hyundai", "기아": "Kia", "제네시스": "Genesis",
+    "BMW": "BMW", "벤츠": "Mercedes-Benz", "메르세데스-벤츠": "Mercedes-Benz",
+    "아우디": "Audi", "폭스바겐": "Volkswagen", "쉐보레": "Chevrolet",
+    "르노": "Renault", "르노코리아": "Renault Korea", "쌍용": "SsangYong",
+    "KG모빌리티": "KGM", "포르쉐": "Porsche", "볼보": "Volvo",
+    "도요타": "Toyota", "렉서스": "Lexus", "혼다": "Honda",
+    "닛산": "Nissan", "포드": "Ford", "지프": "Jeep",
+    "랜드로버": "Land Rover", "재규어": "Jaguar", "미니": "Mini",
+    "푸조": "Peugeot", "시트로엥": "Citroen", "피아트": "Fiat",
+    "크라이슬러": "Chrysler", "캐딜락": "Cadillac", "링컨": "Lincoln",
+    "테슬라": "Tesla", "마세라티": "Maserati", "벤틀리": "Bentley",
+}
+
+# Përkthimi i karburantit
+FUELS = {
+    "가솔린": "Benzinë", "디젤": "Dizel", "하이브리드": "Hibrid",
+    "전기": "Elektrik", "LPG": "LPG", "수소": "Hidrogjen",
+    "가솔린+전기": "Hibrid", "디젤+전기": "Hibrid Dizel",
+}
+
+# Përkthimi i transmisionit
+TRANS = {
+    "오토": "Automatik", "수동": "Manual", "CVT": "CVT", "DCT": "DCT",
+}
 
 # 1. Nis aktorin
 print("Duke nisur Apify actor...")
 url = f"https://api.apify.com/v2/acts/{ACTOR_ID}/runs?token={APIFY_TOKEN}"
-payload = {
-    "carType": "domestic",
-    "maxItems": 20,
-    "scrapeFullDetails": False
-}
+payload = {"carType": "domestic", "maxItems": 20, "scrapeFullDetails": False}
 r = requests.post(url, json=payload)
 r.raise_for_status()
 run_data = r.json()["data"]
 run_id = run_data["id"]
 print(f"Actor nisur. Run ID: {run_id}")
 
-# 2. Prit deri sa të përfundojë
+# 2. Prit përfundimin
 print("Duke pritur përfundimin...")
 status = "RUNNING"
-for _ in range(60):  # max 5 minuta
+for _ in range(60):
     time.sleep(5)
-    status_url = f"https://api.apify.com/v2/actor-runs/{run_id}?token={APIFY_TOKEN}"
-    status_resp = requests.get(status_url).json()["data"]
-    status = status_resp["status"]
+    s = requests.get(f"https://api.apify.com/v2/actor-runs/{run_id}?token={APIFY_TOKEN}").json()["data"]
+    status = s["status"]
     print(f"Statusi: {status}")
     if status in ["SUCCEEDED", "FAILED", "ABORTED", "TIMED-OUT"]:
         break
 
 if status != "SUCCEEDED":
-    raise Exception(f"Actor dështoi me statusin: {status}")
+    raise Exception(f"Actor dështoi: {status}")
 
 # 3. Merr rezultatet
 print("Duke marrë rezultatet...")
 dataset_id = run_data["defaultDatasetId"]
-items_url = f"https://api.apify.com/v2/datasets/{dataset_id}/items?token={APIFY_TOKEN}"
-items = requests.get(items_url).json()
+items = requests.get(f"https://api.apify.com/v2/datasets/{dataset_id}/items?token={APIFY_TOKEN}").json()
 print(f"U morën {len(items)} makina.")
 
-# 4. Printo çelësat e një makinë për debugging
-if items:
-    print("Fushat e një makine:")
-    print(list(items[0].keys()))
-    print("Shembull i një makine:")
-    print(json.dumps(items[0], ensure_ascii=False, indent=2)[:1500])
-
-# 5. Normalizo fushat (me disa alternativa emrash)
+# 4. Normalizo + përkthe
 normalized = []
 for c in items:
+    # Viti: 201612 → 2016
+    year_raw = c.get("year") or 0
+    year = int(str(year_raw)[:4]) if year_raw else 0
+
+    # Marka
+    brand_kr = c.get("manufacturer") or ""
+    brand = BRANDS.get(brand_kr, brand_kr)
+
+    # Karburanti
+    fuel_kr = c.get("fuelType") or ""
+    fuel = FUELS.get(fuel_kr, fuel_kr)
+
+    # Transmisioni
+    trans_kr = c.get("transmission") or ""
+    trans = TRANS.get(trans_kr, trans_kr)
+
+    # Fotoja
+    img = c.get("mainPhotoUrl") or ""
+    if img and not img.startswith("http"):
+        img = "https:" + img if img.startswith("//") else img
+
     normalized.append({
-        "id": c.get("id") or c.get("carId") or c.get("listingId") or "",
-        "make": c.get("make") or c.get("brand") or c.get("manufacturer") or "",
+        "id": str(c.get("id") or ""),
+        "make": brand,
         "model": c.get("model") or "",
-        "year": c.get("year") or 0,
-        "mileage_km": c.get("mileage") or c.get("mileageKm") or c.get("mileage_km") or 0,
-        "price_krw": c.get("price") or c.get("priceKrw") or c.get("price_krw") or 0,
-        "fuel_type": c.get("fuelType") or c.get("fuel") or c.get("fuel_type") or "",
-        "image_url": c.get("image") or c.get("mainImage") or c.get("photo") or c.get("imageUrl") or "",
+        "badge": c.get("badge") or "",
+        "year": year,
+        "mileage_km": c.get("mileage") or 0,
+        "price_krw": c.get("price") or 0,
+        "fuel_type": fuel,
+        "transmission": trans,
+        "image_url": img,
+        "encar_url": c.get("url") or "",
     })
 
-# 6. Ruaj
+# 5. Ruaj
 with open("cars.json", "w", encoding="utf-8") as f:
     json.dump(normalized, f, ensure_ascii=False, indent=2)
 
 print(f"OK: {len(normalized)} makina u ruajtën në cars.json")
+print("Shembull i një makine të normalizuar:")
+print(json.dumps(normalized[0], ensure_ascii=False, indent=2))
