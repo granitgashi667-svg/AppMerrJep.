@@ -2,8 +2,8 @@ name: Update Car Data
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # Çdo ditë në 03:00 UTC
-  workflow_dispatch:        # Ose manualisht
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 jobs:
   fetch-cars:
@@ -17,8 +17,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install encar
-        run: pip install encar
+      - name: Install requests
+        run: pip install requests
 
       - name: Fetch car data
         run: python fetch_cars.py
