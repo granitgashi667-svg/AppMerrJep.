@@ -1,42 +1,202 @@
 [
   {
-    "id": "1",
-    "make": "Hyundai",
-    "model": "Tucson",
-    "year": 2023,
-    "mileage_km": 14200,
-    "price_krw": 36500000,
-    "fuel_type": "Gasoline",
-    "image_url": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600"
+    "id": "41868085",
+    "make": "현대",
+    "model": "그랜저 IG",
+    "year": 201612,
+    "mileage_km": 77721,
+    "price_krw": 14500000,
+    "fuel_type": "가솔린",
+    "image_url": ""
   },
   {
-    "id": "2",
-    "make": "Kia",
-    "model": "Sportage",
-    "year": 2022,
-    "mileage_km": 28400,
-    "price_krw": 32700000,
-    "fuel_type": "Hybrid",
-    "image_url": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600"
+    "id": "42792048",
+    "make": "기아",
+    "model": "스포티지 5세대",
+    "year": 202302,
+    "mileage_km": 47002,
+    "price_krw": 24500000,
+    "fuel_type": "가솔린",
+    "image_url": ""
   },
   {
-    "id": "3",
-    "make": "Genesis",
-    "model": "G70",
-    "year": 2021,
-    "mileage_km": 42100,
-    "price_krw": 43100000,
-    "fuel_type": "Gasoline",
-    "image_url": "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600"
+    "id": "42158602",
+    "make": "기아",
+    "model": "K5 3세대",
+    "year": 202105,
+    "mileage_km": 18249,
+    "price_krw": 22500000,
+    "fuel_type": "가솔린",
+    "image_url": ""
   },
   {
-    "id": "4",
-    "make": "BMW",
-    "model": "M4 Competition",
-    "year": 2023,
-    "mileage_km": 8200,
-    "price_krw": 134000000,
-    "fuel_type": "Gasoline",
-    "image_url": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600"
+    "id": "41833981",
+    "make": "기아",
+    "model": "K5 3세대",
+    "year": 202102,
+    "mileage_km": 44024,
+    "price_krw": 22500000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "41086930",
+    "make": "현대",
+    "model": "더 뉴 아반떼 (CN7)",
+    "year": 202304,
+    "mileage_km": 74195,
+    "price_krw": 18200000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "42792606",
+    "make": "현대",
+    "model": "스타리아",
+    "year": 202503,
+    "mileage_km": 8525,
+    "price_krw": 25990000,
+    "fuel_type": "디젤",
+    "image_url": ""
+  },
+  {
+    "id": "42689118",
+    "make": "현대",
+    "model": "그랜저 IG",
+    "year": 201901,
+    "mileage_km": 48481,
+    "price_krw": 19990000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "42687986",
+    "make": "현대",
+    "model": "더 뉴 그랜저 IG",
+    "year": 202111,
+    "mileage_km": 67498,
+    "price_krw": 29990000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "42704173",
+    "make": "기아",
+    "model": "카니발 4세대",
+    "year": 202009,
+    "mileage_km": 88362,
+    "price_krw": 18500000,
+    "fuel_type": "디젤",
+    "image_url": ""
+  },
+  {
+    "id": "42721917",
+    "make": "기아",
+    "model": "더 뉴 카니발 4세대",
+    "year": 202507,
+    "mileage_km": 8911,
+    "price_krw": 35800000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "40979656",
+    "make": "현대",
+    "model": "그랜저 IG",
+    "year": 201703,
+    "mileage_km": 128805,
+    "price_krw": 10900000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "41089310",
+    "make": "기아",
+    "model": "더 뉴 레이",
+    "year": 201909,
+    "mileage_km": 99732,
+    "price_krw": 8900000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "41382979",
+    "make": "제네시스",
+    "model": "GV70",
+    "year": 202212,
+    "mileage_km": 16888,
+    "price_krw": 41490000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "41410678",
+    "make": "기아",
+    "model": "더 뉴 니로",
+    "year": 202012,
+    "mileage_km": 100921,
+    "price_krw": 17800000,
+    "fuel_type": "가솔린+전기",
+    "image_url": ""
+  },
+  {
+    "id": "41492673",
+    "make": "기아",
+    "model": "올 뉴 카니발",
+    "year": 201509,
+    "mileage_km": 97854,
+    "price_krw": 14000000,
+    "fuel_type": "디젤",
+    "image_url": ""
+  },
+  {
+    "id": "41562014",
+    "make": "현대",
+    "model": "더 뉴 싼타페",
+    "year": 202007,
+    "mileage_km": 102936,
+    "price_krw": 18900000,
+    "fuel_type": "디젤",
+    "image_url": ""
+  },
+  {
+    "id": "41614917",
+    "make": "기아",
+    "model": "더 뉴 레이",
+    "year": 202111,
+    "mileage_km": 106602,
+    "price_krw": 6600000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "41634948",
+    "make": "기아",
+    "model": "더 뉴 카니발",
+    "year": 201912,
+    "mileage_km": 33127,
+    "price_krw": 21500000,
+    "fuel_type": "가솔린",
+    "image_url": ""
+  },
+  {
+    "id": "41659380",
+    "make": "현대",
+    "model": "올 뉴 투싼",
+    "year": 201909,
+    "mileage_km": 110124,
+    "price_krw": 11700000,
+    "fuel_type": "디젤",
+    "image_url": ""
+  },
+  {
+    "id": "42011968",
+    "make": "현대",
+    "model": "스타리아",
+    "year": 202310,
+    "mileage_km": 11796,
+    "price_krw": 22800000,
+    "fuel_type": "디젤",
+    "image_url": ""
   }
 ]
